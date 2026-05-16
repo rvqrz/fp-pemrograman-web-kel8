@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../assets/css/output.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../assets/js/auth.js"></script>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slate-900 border-r border-slate-800 p-5">
+
+      <h1 class="text-2xl font-bold text-indigo-500 mb-10">
+        WMS
+      </h1>
+
+      <nav class="space-y-3">
+
+        <a href="#" class="block p-3 rounded-xl bg-indigo-500 text-white">
+          Dashboard
+        </a>
+
+        <a href="#" class="block p-3 rounded-xl hover:bg-slate-800">
+          Data Barang
+        </a>
+
+        <a href="#" class="block p-3 rounded-xl hover:bg-slate-800">
+          Barang Masuk
+        </a>
+
+        <a href="#" class="block p-3 rounded-xl hover:bg-slate-800">
+          Barang Keluar
+        </a>
+
+      </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+
+      <!-- Navbar -->
+      <div class="flex justify-between items-center mb-8">
+
+        <div>
+          <h2 class="text-3xl font-bold">
+            Dashboard
+          </h2>
+
+          <p class="text-slate-400">
+            Warehouse Management Overview
+          </p>
+        </div>
+
+        <div class="flex items-center gap-4">
+
+          <input
+            type="text"
+            placeholder="Search..."
+            class="bg-slate-900 border border-slate-800 rounded-xl px-4 py-2 outline-none">
+
+          <img
+            src="https://i.pravatar.cc/40"
+            class="rounded-full w-10 h-10">
+
+        </div>
+
+      </div>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-4 gap-6 mb-8">
+
+        <div class="bg-slate-900 p-6 rounded-2xl">
+          <p class="text-slate-400">
+            Total Products
+          </p>
+
+          <h3 class="text-3xl font-bold mt-2">
+            1,245
+          </h3>
+        </div>
+
+        <div class="bg-slate-900 p-6 rounded-2xl">
+          <p class="text-slate-400">
+            Stock In
+          </p>
+
+          <h3 class="text-3xl font-bold mt-2 text-green-500">
+            532
+          </h3>
+        </div>
+
+        <div class="bg-slate-900 p-6 rounded-2xl">
+          <p class="text-slate-400">
+            Stock Out
+          </p>
+
+          <h3 class="text-3xl font-bold mt-2 text-red-500">
+            210
+          </h3>
+        </div>
+
+        <div class="bg-slate-900 p-6 rounded-2xl">
+          <p class="text-slate-400">
+            Low Stock
+          </p>
+
+          <h3 class="text-3xl font-bold mt-2 text-yellow-500">
+            12
+          </h3>
+        </div>
+
+      </div>
+
+      <!-- Chart -->
+      <div class="bg-slate-900 p-6 rounded-2xl">
+
+        <h3 class="text-xl font-bold mb-6">
+          Warehouse Analytics
+        </h3>
+
+        <canvas id="warehouseChart"></canvas>
+
+      </div>
+
+    </main>
+
+  </div>
+
+    <button
+        onclick="logout()"
+        class="bg-red-500 px-4 py-2 rounded-xl">
+        Logout
+    </button>
+
+  <script src="../assets/js/logout.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+  
+
+</body>
+
+</html>
