@@ -2,19 +2,53 @@ const db = require('../config/db');
 
 exports.getProducts = (req, res) => {
 
-    const query = `
-        SELECT 
-            products.product_id,
-            products.name,
-            products.category_id,
-            categories.name AS category,
-            products.unit
-        FROM products
-        JOIN categories
-        ON products.category_id = categories.category_id
-    `;
+    const {
+        search,
+        category
+    } = req.query;
 
-    db.query(query, (err, result) => {
+    let query = `
+    SELECT 
+        products.product_id,
+        products.name,
+        products.category_id,
+        categories.name AS category,
+        products.unit,
+        stocks.quantity
+    FROM products
+
+    JOIN categories
+    ON products.category_id = categories.category_id
+
+    LEFT JOIN stocks
+    ON products.product_id = stocks.product_id
+
+    WHERE 1=1
+`;
+
+    let values = [];
+
+    if (search) {
+
+        query += `
+            AND products.name LIKE ?
+        `;
+
+        values.push(`%${search}%`);
+
+    }
+
+    if (category) {
+
+        query += `
+            AND products.category_id = ?
+        `;
+
+        values.push(category);
+
+    }
+
+    db.query(query, values, (err, result) => {
 
         if (err) {
             return res.status(500).json(err);

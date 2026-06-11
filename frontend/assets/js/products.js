@@ -1,9 +1,17 @@
-async function getProducts() {
-    let editProductId = null;
+let editProductId = null;
 
-    const response = await fetch(
-        'http://localhost:3000/api/products'
-    );
+async function getProducts() {
+
+    const search =
+        document.getElementById('search').value;
+
+    const category =
+        document.getElementById('filterCategory').value;
+
+    let url =
+        `http://localhost:3000/api/products?search=${search}&category=${category}`;
+
+    const response = await fetch(url);
 
     const data = await response.json();
 
@@ -34,24 +42,29 @@ async function getProducts() {
                 </td>
 
                 <td class="p-4">
+                    ${product.quantity || 0}
+                </td>
 
-    <button
-        onclick="editProduct(${product.product_id})"
-        class="bg-yellow-500 px-4 py-2 rounded-xl">
+                <td class="p-4 flex gap-2">
 
-        Edit
+                    <button
+                        onclick="editProduct(${product.product_id})"
+                        class="bg-yellow-500 px-4 py-2 rounded-xl">
 
-    </button>
+                        Edit
 
-    <button
-    onclick="deleteProduct(${product.product_id})"
-    class="bg-red-500 px-4 py-2 rounded-xl ml-2">
+                    </button>
 
-    Delete
+                    <button
+                        onclick="deleteProduct(${product.product_id})"
+                        class="bg-red-500 px-4 py-2 rounded-xl">
 
-</button>
+                        Delete
 
-</td>
+                    </button>
+
+                </td>
+
             </tr>
         `;
 
@@ -70,15 +83,30 @@ async function getCategories() {
     const categorySelect =
         document.getElementById('category_id');
 
+    const filterCategory =
+        document.getElementById('filterCategory');
+
     categorySelect.innerHTML = `
         <option value="">
             Pilih Kategori
         </option>
     `;
 
+    filterCategory.innerHTML = `
+        <option value="">
+            Semua Kategori
+        </option>
+    `;
+
     data.forEach(category => {
 
         categorySelect.innerHTML += `
+            <option value="${category.category_id}">
+                ${category.name}
+            </option>
+        `;
+
+        filterCategory.innerHTML += `
             <option value="${category.category_id}">
                 ${category.name}
             </option>
@@ -184,6 +212,30 @@ async function deleteProduct(id) {
     location.reload();
 
 }
+
+let timeout;
+
+document
+.getElementById('search')
+.addEventListener('keyup', () => {
+
+    clearTimeout(timeout);
+
+    timeout = setTimeout(() => {
+
+        getProducts();
+
+    }, 300);
+
+});
+
+document
+.getElementById('filterCategory')
+.addEventListener('change', () => {
+
+    getProducts();
+
+});
 
 window.onload = () => {
 

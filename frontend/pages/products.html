@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-
   <link rel="stylesheet" href="../assets/css/output.css">
-
   <title>Products</title>
 </head>
-
 <body class="bg-slate-950 text-white p-10">
 
   <h1 class="text-3xl font-bold mb-8">
@@ -54,6 +50,26 @@
 
 </div>
 
+<div class="flex gap-4 mb-6">
+
+  <input
+    type="text"
+    id="search"
+    placeholder="Search Product..."
+    class="bg-slate-800 p-3 rounded-xl outline-none w-full">
+
+  <select
+    id="filterCategory"
+    class="bg-slate-800 p-3 rounded-xl outline-none">
+
+    <option value="">
+      Semua Kategori
+    </option>
+
+  </select>
+
+</div>
+
   <table class="w-full">
 
     <thead>
@@ -64,6 +80,7 @@
         <th class="p-4 text-left">Nama</th>
         <th class="p-4 text-left">Kategori</th>
         <th class="p-4 text-left">Unit</th>
+        <th class="p-4 text-left">Stok</th>
         <th class="p-4 text-left">Action</th>
 
       </tr>

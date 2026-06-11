@@ -6,6 +6,8 @@ const authRoutes = require('./routes/authRoutes');
 const testRoutes = require('./routes/testRoutes');
 const productRoutes = require('./routes/productRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
+const stockRoutes = require('./routes/stockRoutes');
+const warehouseRoutes = require('./routes/warehouseRoutes');
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/test', testRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/stocks', stockRoutes);
+app.use('/api/warehouses', warehouseRoutes);
 
 app.get('/', (req, res) => {
     res.send('Warehouse Management System API');

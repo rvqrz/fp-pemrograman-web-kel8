@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Barang Masuk</title>
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/output.css">
+
+</head>
+
+<body class="bg-slate-950 text-white min-h-screen p-10">
+
+    <div class="max-w-3xl mx-auto">
+
+        <!-- HEADER -->
+
+        <div class="mb-10">
+
+            <h1 class="text-4xl font-bold mb-2">
+                Barang Masuk
+            </h1>
+
+            <p class="text-slate-400">
+                Tambahkan stok barang ke gudang
+            </p>
+
+        </div>
+
+        <!-- FORM -->
+
+        <div class="bg-slate-900 p-8 rounded-2xl shadow-lg">
+
+            <form
+                id="stockInForm"
+                class="space-y-6">
+
+                <!-- PRODUCT -->
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Pilih Barang
+                    </label>
+
+                    <select
+                        id="product_id"
+                        class="w-full bg-slate-800 p-4 rounded-xl outline-none">
+
+                        <option value="">
+                            Pilih Barang
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- WAREHOUSE -->
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Pilih Gudang
+                    </label>
+
+                    <select
+                        id="warehouse_id"
+                        class="w-full bg-slate-800 p-4 rounded-xl outline-none">
+
+                        <option value="">
+                            Pilih Gudang
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- SUPPLIER -->
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Pilih Supplier
+                    </label>
+
+                    <select
+                        id="supplier_id"
+                        class="w-full bg-slate-800 p-4 rounded-xl outline-none">
+
+                        <option value="">
+                            Pilih Supplier
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- QUANTITY -->
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Quantity Masuk
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        placeholder="Masukkan jumlah barang"
+                        class="w-full bg-slate-800 p-4 rounded-xl outline-none">
+
+                </div>
+
+                <!-- NOTES -->
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Catatan
+                    </label>
+
+                    <textarea
+                        id="notes"
+                        rows="5"
+                        placeholder="Contoh: Barang datang dari supplier"
+                        class="w-full bg-slate-800 p-4 rounded-xl outline-none"></textarea>
+
+                </div>
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="bg-green-500 hover:bg-green-600 transition px-8 py-4 rounded-xl font-semibold w-full">
+
+                    Simpan Barang Masuk
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="../assets/js/stock-in.js"></script>
+
+</body>
+
+</html>
